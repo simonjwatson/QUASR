@@ -1,0 +1,42 @@
+QUASR v6.09
+* Added command-line flag (-y) for pileup_depth_graph.py to allow manual
+  maximum Y-range
+
+QUASR v6.08 (31/10/2011):
+* Added a check for version of Python interpeter to cleanly exit if not Python3
+* DEPRECATING DUPLICATE_REMOVAL.PY AS UNHAPPY WITH IMPLEMENTATION
+* Added exception handling for ImportExceptions to cleanly exit if sys.path not set
+* Added SAMtools-0.1.8 binary and extras/convert_sam_to_pileup.sh
+
+QUASR v6.07 (28/7/2011):
+* BUGFIX: Changed pileup_consensus.py to handle if all bases < ambiguity cutoff. Now will
+  put in majority base, or an ambiguity code if >1 at same frequency.
+
+QUASR v6.06 (21/6/2011):
+* Added missing ambiguity codes in pileup insertion regex
+
+QUASR v6.05 (/5/2011):
+* Added newline character to end of consensus in pileup_consensus.py to aid in
+  concatenating files for MSA
+* BUGFIX: MIDs were not being removed from sequences if present and located
+* BUGFIX: Chomp lines in primer file as '\n' was added to regex in fastq_primer_remover.py
+
+QUASR v6.04 (5/4/2011):
+* Changed extras/pileup_depth_graph.py to add in an extra space on the right margin as
+  sometimes the xaxis labels were getting chopped off
+* REVERT: v6.02 one-too-high error was actually correct.
+* BUGFIX: pileup_consensus.py was not parsing lowercase bases in the pileup file
+
+QUASR v6.03 (4/42011):
+* Added extras/pileup_minority_list.py for exact identification of minority positions
+
+QUASR v6.02 (30/3/2011):
+* BUGFIX: Pileup class was parsing read depth from pileup file as a string. This has
+  been changed to an integer.
+* BUGFIX: Plot titles in extras/pileup_depth_graph.py were one-too-high in upper number.
+* extras/fastq_duplicate_remover.py improved to allow for paired-end duplicates
+
+QUASR v6.01 (14/3/2011):
+* Added extras/fastq_duplicate_remover.py to remove identical sequences in a readset,
+  leaving only the read with the highest mean quality
+* Changed quality_control.py to suffix output files as .fq instead of .fastq
